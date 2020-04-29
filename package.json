@@ -1,0 +1,29 @@
+{
+  "name": "message-parser",
+  "version": "1.0.0",
+  "description": "A fast and efficient parser using regular expressions for discord messages, supports custom emojis and spoilers. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ModCord/message-parser.git"
+  },
+  "keywords": [
+    "discord",
+    "emojis",
+    "custom-emojis",
+    "discord-emojis",
+    "parser",
+    "emoji-parser",
+    "message-parser",
+    "message"
+  ],
+  "author": "MrAugu#7917",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ModCord/message-parser/issues"
+  },
+  "homepage": "https://github.com/ModCord/message-parser#readme"
+}
