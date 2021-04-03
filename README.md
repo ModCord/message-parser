@@ -77,3 +77,72 @@ client.on("message", (message) => {
   */
 });
 ```
+*Is time for you to get creative..*
+
+# Methods
+**\_parseCustomEmojis** - *Used internally by the library*
+
+Parses the non-animated custom emojis from a string.
+```js
+EmojiParser._parseCustomEmojis(<Content - String>);
+```
+- Output:
+```
+Array<Emojis>
+```
+
+**\_parseAnimatedCustomEmojis** - *Used internally by the library*
+
+Parses the animated custom emojis from a string.
+```js
+EmojiParser._parseAnimatedCustomEmojis(<Content - String>);
+```
+- Output:
+```
+Array<Emojis>
+```
+
+**\_parseUnicodeEmojis** - *Used internally by the library*
+
+Parses the unicode emojis from a string.
+```js
+EmojiParser._parseUnicodeEmojis(<Content - String>);
+```
+- Output:
+```
+Array<Emojis>
+```
+
+**countEmojis**
+
+Counts the amount of emojis found in a string and returns the numbers.
+```js
+EmojiParser.countEmojis(<Content - String>);
+```
+- Output:
+```
+Object
+```
+
+**\_parseEmoji** - *Used internally by the library*
+
+Parse the custom emoji, both animated and not, and returns an array of 1 (custom emoji, non animated, it's the emoji's id) or 2 elements (first the `a` emoji specific for animated emojis, and then the second its the emoji's id).
+```js
+EmojiParser._parseEmoji(<Content - String>);
+```
+- Output:
+```
+Array<String>
+```
+
+**parseEmojis**
+
+Parses the string's emojis and returns them in an object, with emojis grouped into 5 properties (`custom`, `customAnimated`, `customEmojis`, `unicode`, `allEmojis`), each of them is an array of emojis. 
+```js
+EmojiParser.parseEmojis(<Content - String>);
+```
+- Output:
+```
+Object
+```
+
