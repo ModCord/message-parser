@@ -35,7 +35,8 @@ const { SpoilerParser, EmojiParser } = MessageParser;
 ```js
 client.on("mesage", (mesage) => {
   const emojiCount = EmojiParser.countEmojis(message.content);
-  /*  Sample response: 
+  console.log(emojiCount);
+  /*  Sample output: 
      {
        custom: 1,
        animated: 0,
@@ -50,8 +51,8 @@ client.on("mesage", (mesage) => {
 ```js
 client.on("message", (message) => {
   const messageEmojis = EmojiParser.parseEmojis(message.content);
-  
-  /* Sample response:
+  console.log(messageEmojis);
+  /* Sample output:
   {
       custom: [{ name: "doggo", id: "393852367751086090", raw: "<:doggo:393852367751086090>", animated: false, unicode: false }],
       customAnimated: [{ name: "dogdance", id: "663013890376073257", raw: "<:dogdance:663013890376073257>", animated: true, unicode: false }],
@@ -61,3 +62,18 @@ client.on("message", (message) => {
   }
   */
 });
+```
+
+- **Parsing spoilers in a message:**
+```js
+client.on("message", (message) => {
+  const messageSpoilers = SpoilerParser.parseSpoilers(message.content);
+  console.log(messageSpoilers);
+  /* Sample Output
+  [
+    { content: 'is killed', raw: '||is killed||' },
+    { content: 'married tom', raw: '||married tom||' }
+  ]
+  */
+});
+```
