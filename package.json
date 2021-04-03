@@ -1,5 +1,5 @@
 {
-  "name": "message-parser",
+  "name": "discord-message-parser",
   "version": "1.0.0",
   "description": "A fast and efficient parser using regular expressions for discord messages, supports custom emojis and spoilers. ",
   "main": "index.js",
