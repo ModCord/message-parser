@@ -165,11 +165,11 @@ String
 
 **parseSpoilers**
 
-Parses all of the spoilers in a string and returns them as an object with `content` and `raw` properties.
+Parses all of the spoilers in a string and returns them as an array with objects having `content` and `raw` properties.
 ```js
 SpoilerMarser.parseEmojis(<Content - String>);
 ```
 - Output:
 ```
-Object
+Array<Object>
 ```
