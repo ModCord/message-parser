@@ -80,6 +80,9 @@ client.on("message", (message) => {
 *Is time for you to get creative..*
 
 # Methods
+
+
+## 1. Emoji Parsing API
 **\_parseCustomEmojis** - *Used internally by the library*
 
 Parses the non-animated custom emojis from a string.
@@ -88,7 +91,7 @@ EmojiParser._parseCustomEmojis(<Content - String>);
 ```
 - Output:
 ```
-Array<Emojis>
+Array<Emoji>
 ```
 
 **\_parseAnimatedCustomEmojis** - *Used internally by the library*
@@ -99,7 +102,7 @@ EmojiParser._parseAnimatedCustomEmojis(<Content - String>);
 ```
 - Output:
 ```
-Array<Emojis>
+Array<Emoji>
 ```
 
 **\_parseUnicodeEmojis** - *Used internally by the library*
@@ -110,7 +113,7 @@ EmojiParser._parseUnicodeEmojis(<Content - String>);
 ```
 - Output:
 ```
-Array<Emojis>
+Array<Emoji>
 ```
 
 **countEmojis**
@@ -126,7 +129,7 @@ Object
 
 **\_parseEmoji** - *Used internally by the library*
 
-Parse the custom emoji, both animated and not, and returns an array of 1 (custom emoji, non animated, it's the emoji's id) or 2 elements (first the `a` emoji specific for animated emojis, and then the second its the emoji's id).
+Parse the custom emoji, both animated and not, and returns an array of 1 (custom emoji, non animated, it's the emoji's id) or 2 elements (first - an `a` string, specific for animated emojis & then the second it's the emoji's id).
 ```js
 EmojiParser._parseEmoji(<Content - String>);
 ```
@@ -146,3 +149,27 @@ EmojiParser.parseEmojis(<Content - String>);
 Object
 ```
 
+
+## 2. Spoiler Parsing API
+
+**\_parseSpoilerContent** - *Used internally by the library*
+
+Parse a spoiler from end to finnish and returns its contents.
+```js
+SpoilerParser._parseSpoilerContent(<Content - String>);
+```
+- Output:
+```
+String
+```
+
+**parseSpoilers**
+
+Parses all of the spoilers in a string and returns them as an object with `content` and `raw` properties.
+```js
+SpoilerMarser.parseEmojis(<Content - String>);
+```
+- Output:
+```
+Object
+```
