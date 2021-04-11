@@ -33,7 +33,7 @@ const { SpoilerParser, EmojiParser } = MessageParser;
 *Following example contains isolated code which you need to integrate in your own command handler.*
 - **Counting emojis in a message:**
 ```js
-client.on("mesage", (mesage) => {
+client.on("message", (message) => {
   const emojiCount = EmojiParser.countEmojis(message.content);
   console.log(emojiCount);
   /*  Sample output: 
