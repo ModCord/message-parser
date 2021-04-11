@@ -4,7 +4,9 @@
   "description": "A not so fast and not so efficient parser using regular expressions for discord messages, supports custom emojis and spoilers. ",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --build tsconfig.json"
+    "build": "tsc --build tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/ModCord/message-parser/issues"
   },
-  "homepage": "https://github.com/ModCord/message-parser#readme"
+  "homepage": "https://github.com/ModCord/message-parser#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
 }

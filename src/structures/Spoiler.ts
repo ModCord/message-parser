@@ -7,7 +7,7 @@ export class Spoiler implements SpoilerInterface {
   raw: string;
   content: string;
 
-  constructor (data: SpoilerInterface) {
+  constructor(data: SpoilerInterface) {
     this.raw = data.raw;
     this.content = data.content;
   }

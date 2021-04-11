@@ -17,66 +17,73 @@ export interface EmojiParseResult {
 }
 
 export class EmojiParser {
-  static _parseCustomEmojis (str: string): Emoji[] {
+  static _parseCustomEmojis(str: string): Emoji[] {
     const regex: RegExp = /<:([^<]*):([^<]*)>/g;
     const matches: RegExpMatchArray | null = str.match(regex);
     if (!matches) return [];
     const emojis: Emoji[] = [];
     for (const match of matches) {
-      const rawData:string[] = this._parseEmoji(match);
-      emojis.push(new Emoji({
-        name: rawData[0],
-        id: rawData[1],
-        raw: match,
-        unicode: false
-      }));
+      const rawData: string[] = this._parseEmoji(match);
+      emojis.push(
+        new Emoji({
+          name: rawData[0],
+          id: rawData[1],
+          raw: match,
+          unicode: false,
+        }),
+      );
     }
     return emojis;
   }
 
-  static _parseAnimatedCustomEmojis (str: string): Emoji[] {
+  static _parseAnimatedCustomEmojis(str: string): Emoji[] {
     const regex: RegExp = /<a:([^<]*):([^<]*)>/g;
     const matches: RegExpMatchArray | null = str.match(regex);
     if (!matches) return [];
     const emojis: Emoji[] = [];
     for (const match of matches) {
       const rawData: string[] = this._parseEmoji(match);
-      emojis.push(new Emoji({
-        name: rawData[1],
-        id: rawData[2],
-        raw: match,
-        animated: true,
-        unicode: false
-      }));
+      emojis.push(
+        new Emoji({
+          name: rawData[1],
+          id: rawData[2],
+          raw: match,
+          animated: true,
+          unicode: false,
+        }),
+      );
     }
     return emojis;
   }
 
-  static _parseUnicodeEmojis (str: string): Emoji[] {
+  static _parseUnicodeEmojis(str: string): Emoji[] {
     const emojis: Emoji[] = [];
-    var match;
-    while (match = unicodeRegex.exec(str)) {
+    const matches = unicodeRegex.exec(str);
+    if (!matches || !matches.length) return [];
+    for (const match of matches) {
       const rawEmoji: string = match[0];
-      emojis.push(new Emoji({
-        unicode: true,
-        raw: rawEmoji
-      }));
+      emojis.push(
+        new Emoji({
+          unicode: true,
+          raw: rawEmoji,
+        }),
+      );
     }
     return emojis;
   }
 
-  static countEmojis (str: string): EmojiCountResult {
-    var customCount: number = 0;
+  static countEmojis(str: string): EmojiCountResult {
+    let customCount: number = 0;
     const customRegex: RegExp = /<:([^<]*):([^<]*)>/g;
     const customMatches: RegExpMatchArray | null = str.match(customRegex);
     if (customMatches) customCount += customMatches.length;
 
-    var customAnimatedCount: number = 0;
+    let customAnimatedCount: number = 0;
     const customAnimatedRegex: RegExp = /<a:([^<]*):([^<]*)>/g;
     const customAnimatedMatches: RegExpMatchArray | null = str.match(customAnimatedRegex);
     if (customAnimatedMatches) customAnimatedCount += customAnimatedMatches.length;
 
-    var unicodeCount: number = 0;
+    let unicodeCount: number = 0;
     const unicodeMatches: RegExpMatchArray | null = str.match(unicodeRegex);
     if (unicodeMatches) unicodeCount += unicodeMatches.length;
 
@@ -84,11 +91,11 @@ export class EmojiParser {
       custom: customCount,
       animated: customAnimatedCount,
       unicode: unicodeCount,
-      total: customCount + customAnimatedCount + unicodeCount
+      total: customCount + customAnimatedCount + unicodeCount,
     };
   }
 
-  static _parseEmoji (str: string): string[] {
+  static _parseEmoji(str: string): string[] {
     str = str.replace(/>/g, "");
     str = str.replace(/</g, "");
     str = str.replace(/:/g, " ");
@@ -96,7 +103,7 @@ export class EmojiParser {
     return str.split(" ");
   }
 
-  static parseEmojis (str: string): EmojiParseResult {
+  static parseEmojis(str: string): EmojiParseResult {
     const normalEmojis = this._parseCustomEmojis(str);
     const animatedEmojis = this._parseAnimatedCustomEmojis(str);
     const unicodeEmojis = this._parseUnicodeEmojis(str);
@@ -106,7 +113,7 @@ export class EmojiParser {
       customAnimated: animatedEmojis,
       customEmojis: [...normalEmojis, ...animatedEmojis],
       unicode: unicodeEmojis,
-      allEmojis: [...normalEmojis, ...animatedEmojis, ...unicodeEmojis]
+      allEmojis: [...normalEmojis, ...animatedEmojis, ...unicodeEmojis],
     };
   }
 }

@@ -13,7 +13,7 @@ export class Emoji implements EmojiInterface {
   animated?: boolean | null;
   unicode: boolean;
 
-  constructor (data: EmojiInterface) {
+  constructor(data: EmojiInterface) {
     this.name = data.name;
     this.id = data.id;
     this.raw = data.raw;
