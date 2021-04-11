@@ -24,6 +24,7 @@ export class EmojiParser {
     const emojis: Emoji[] = [];
     for (const match of matches) {
       const rawData: string[] = this._parseEmoji(match);
+      if (!rawData || !rawData[0] || !rawData[1] || rawData[1].length < 15) continue;
       emojis.push(
         new Emoji({
           name: rawData[0],
@@ -43,6 +44,7 @@ export class EmojiParser {
     const emojis: Emoji[] = [];
     for (const match of matches) {
       const rawData: string[] = this._parseEmoji(match);
+      if (!rawData || !rawData[0] || rawData[0] !== "a" || !rawData[1] || !rawData[2] || rawData[2].length < 15) continue;
       emojis.push(
         new Emoji({
           name: rawData[1],
