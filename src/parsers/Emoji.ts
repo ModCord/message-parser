@@ -16,7 +16,7 @@ export interface EmojiParseResult {
   allEmojis: Emoji[];
 }
 
-export default class EmojiParser {
+export class EmojiParser {
   static _parseCustomEmojis (str: string): Emoji[] {
     const regex: RegExp = /<:([^<]*):([^<]*)>/g;
     const matches: RegExpMatchArray | null = str.match(regex);

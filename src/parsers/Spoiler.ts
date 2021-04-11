@@ -1,6 +1,6 @@
 import { Spoiler } from "../structures/Spoiler";
 
-export default class SpoilerParser {
+export class SpoilerParser {
   static parseSpoilers (str: string): Spoiler[] {
     const regex: RegExp = /\|\|([^<|]*)\|\|/g
     const matches: RegExpMatchArray | null = str.match(regex);

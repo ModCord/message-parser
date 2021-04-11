@@ -4,7 +4,7 @@
   "description": "A not so fast and not so efficient parser using regular expressions for discord messages, supports custom emojis and spoilers. ",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "build": "tsc --build tsconfig.json"
   },
   "repository": {
     "type": "git",
