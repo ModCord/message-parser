@@ -23,7 +23,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Installing NPM Packages
-        run: npm install typescript @types/node jest prettier ts-jest @types/jest
+        run: npm install typescript @types/node jest prettier ts-jest @types/jest tslint
 
       - name: Lint
         run: npm run lint
